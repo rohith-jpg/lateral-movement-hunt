@@ -5,3 +5,10 @@ results/
 *.evtx
 .env
 private-data/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+.DS_Store

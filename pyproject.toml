@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lateral-movement-hunt"
+version = "0.1.0"
+description = "Offline Windows lateral-movement triage with reproducible synthetic evidence"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "rohith-jpg" }]
+dependencies = []
+
+[project.scripts]
+lateral-hunt = "lateral_hunt.cli:main"
+
+[project.urls]
+Repository = "https://github.com/rohith-jpg/lateral-movement-hunt"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
