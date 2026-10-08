@@ -1,0 +1,36 @@
+[
+  {
+    "rule": "service_account_rdp",
+    "severity": "medium",
+    "account": "LAB\\svc-backup",
+    "evidence": [
+      "E06"
+    ],
+    "reason": "Configured service account used for RemoteInteractive logon; review authorization."
+  },
+  {
+    "rule": "psexec_then_rdp_candidate",
+    "severity": "high",
+    "account": "LAB\\svc-backup",
+    "path": [
+      "PC-01",
+      "PC-02",
+      "FILE-01"
+    ],
+    "start": "2026-10-08T10:02:00Z",
+    "end": "2026-10-08T10:11:00Z",
+    "evidence": [
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07"
+    ],
+    "attack": [
+      "T1021.002",
+      "T1021.001"
+    ],
+    "reason": "Same-account two-hop logons plus intermediate-host PsExec artifacts. Service/process timing is circumstantial; confirm operator and session attribution."
+  }
+]

@@ -1,0 +1,15 @@
+event_uid,timestamp,host,channel,event_id,account,source_host,logon_type,logon_id,service_name,image,parent_image
+B01,2026-10-08T09:00:00Z,FILE-01,Security,4624,LAB\svc-backup,BACKUP-01,3,0x301,,,
+B02,2026-10-08T09:00:01Z,FILE-01,Security,4624,LAB\svc-backup,,4,0x302,,,
+B03,2026-10-08T09:10:00Z,PC-02,Security,4624,LAB\helpdesk,ADMIN-01,10,0x401,,,
+B04,2026-10-08T09:11:00Z,PC-02,Security,4672,LAB\helpdesk,,,0x401,,,
+B05,2026-10-08T09:20:00Z,FILE-01,Security,4625,LAB\user1,PC-01,3,,,,
+B06,2026-10-08T09:30:00Z,PC-02,System,7045,,,,,ApprovedAgent,C:\Program Files\Example\agent.exe,
+E01,2026-10-08T10:01:00Z,PC-01,Security,4648,LAB\svc-backup,,,,,C:\Tools\PsExec.exe,
+E02,2026-10-08T10:02:00Z,PC-02,Security,4624,LAB\svc-backup,PC-01,3,0x101,,,
+E03,2026-10-08T10:03:00Z,PC-02,System,7045,,,,,PSEXESVC,C:\Windows\PSEXESVC.exe,
+E04,2026-10-08T10:05:00Z,PC-02,Security,4688,NT AUTHORITY\SYSTEM,,,0x3e7,,C:\Windows\System32\cmd.exe,C:\Windows\PSEXESVC.exe
+E05,2026-10-08T10:05:00Z,PC-02,Microsoft-Windows-Sysmon/Operational,1,NT AUTHORITY\SYSTEM,,,,,C:\Windows\System32\cmd.exe,C:\Windows\PSEXESVC.exe
+E06,2026-10-08T10:11:00Z,FILE-01,Security,4624,LAB\svc-backup,PC-02,10,0x201,,,
+B07,2026-10-08T10:11:01Z,OTHER-01,Security,4672,LAB\svc-backup,,,0x201,,,
+E07,2026-10-08T10:11:01Z,FILE-01,Security,4672,LAB\svc-backup,,,0x201,,,
