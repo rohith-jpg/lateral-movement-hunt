@@ -1,0 +1,24 @@
+```Account timeline: normalized JSON only; set time picker to include 2026-10-08 UTC.```
+index=lateral_lab
+| spath
+| where account="LAB\\svc-backup"
+| sort 0 timestamp
+| table timestamp event_uid host channel event_id logon_type source_host logon_id image parent_image
+
+```Service-account RemoteInteractive candidate. Replace the example account with an inventory lookup in production.```
+index=lateral_lab
+| spath
+| where channel="Security" AND event_id=4624 AND logon_type=10 AND account="LAB\\svc-backup"
+| table timestamp event_uid account source_host source_ip host logon_id
+
+```Supporting service installations; does not attribute the operator.```
+index=lateral_lab
+| spath
+| where channel="System" AND event_id=7045 AND lower(service_name)="psexesvc"
+| table timestamp event_uid host service_name image service_account
+
+```Supporting child-process evidence. Run separately from the above searches.```
+index=lateral_lab
+| spath
+| where ((channel="Security" AND event_id=4688) OR (channel="Microsoft-Windows-Sysmon/Operational" AND event_id=1)) AND like(lower(parent_image), "%psexesvc.exe")
+| table timestamp event_uid host account image parent_image process_guid
