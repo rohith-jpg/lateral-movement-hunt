@@ -7,7 +7,11 @@
 [![MIT](https://img.shields.io/badge/License-MIT-0F766E)](LICENSE)
 [![CI](https://github.com/rohith-jpg/lateral-movement-hunt/actions/workflows/tests.yml/badge.svg)](https://github.com/rohith-jpg/lateral-movement-hunt/actions/workflows/tests.yml)
 
-> **Demo capture TODO:** save a genuine terminal screenshot at `docs/images/demo.png`. Show `python -m lateral_hunt`, the counts, and the generated summary with `PC-01 → PC-02 → FILE-01`. [Capture instructions](docs/images/README.md). No fabricated screenshot is included.
+**[Open the live interactive demo](https://famous-cobbler-104cfe.netlify.app/)** — no login required. Explore the synthetic event timeline, filter by host, inspect evidence, and download sample alerts.
+
+![Working evidence explorer](docs/images/recruiter-demo-desktop.jpg)
+
+The browser demo displays the sample data and Python-generated results; it does not run the Python detector or ingest live logs. [Mobile screenshot](docs/images/recruiter-demo-mobile.jpg).
 
 ## Why this project
 
@@ -39,7 +43,7 @@ flowchart LR
     R --> M[summary.md]
 ```
 
-The application reads local files and writes local reports. It has no database, external API, network service, or AI dependency. Raw EVTX conversion is outside the current scope.
+The Python CLI reads local files and writes local reports. It has no database, external API, network service, or AI dependency. A separate static HTML/CSS/JavaScript demo hosted on Netlify presents the sample evidence and results. Raw EVTX conversion is outside the current scope.
 
 ```mermaid
 sequenceDiagram
@@ -67,6 +71,7 @@ Each run is an offline batch operation. A valid run with no matches still writes
 
 | Layer | Tool | Why |
 |---|---|---|
+| Browser demo | HTML, CSS, JavaScript; Netlify | Interactive sample evidence explorer with static hosting |
 | Runtime | Python 3.10+ | Portable CLI with no third-party runtime dependencies |
 | Input/output | JSONL, JSON, CSV, Markdown | Inspectable data and readable evidence references |
 | Tests | unittest | Core and CLI checks without a framework dependency |
@@ -172,7 +177,7 @@ src/lateral_hunt/     # CLI, validation, correlation, output, shared types
  examples/           # Generated alerts, timeline, analyst summary
  detections/         # Splunk templates for the normalized schema
  docs/               # Architecture, investigation, lab runbook, references
- docs/images/        # Genuine demo capture instructions and reserved path
+ docs/images/        # Actual desktop/mobile screenshots and capture instructions
  scripts/            # Deterministic sample-data generator
  .github/workflows/  # Lint, format, tests, fixture and Docker checks
  hunt.py             # Backward-compatible checkout launcher
@@ -204,10 +209,11 @@ Or `make check` with GNU Make. `make format` formats Python files. Tests cover e
 - [ ] Benchmark larger inputs before making performance claims; matching currently uses nested scans.
 - [ ] Confirm author name and add LinkedIn/portfolio URLs.
 
-No deployment URL is needed for an offline CLI. A hosted UI would be a separate optional extension. [Repository settings and pinned blurb](docs/portfolio.md) are suggestions for the owner to apply.
+The [public browser demo](https://famous-cobbler-104cfe.netlify.app/) is available without repository access. The Python CLI remains an offline tool. [Repository settings and pinned blurb](docs/portfolio.md) are suggestions for the owner to apply.
 
 ## Author
 
 [rohith-jpg](https://github.com/rohith-jpg) · LinkedIn: **TODO — provide URL** · Portfolio: **TODO — provide URL**
 
 [MIT license](LICENSE). Concept inspired by the user-provided myfirsthack brief; code, data and report are original. Reference screenshots are not redistributed. [Primary technical references](docs/references.md).
+
